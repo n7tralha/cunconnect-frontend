@@ -85,6 +85,7 @@ export default function ProductUploadPage() {
       productData.append('price', parseFloat(formData.price));
       productData.append('category', formData.category);
       productData.append('seller_id', currentUser.id);
+      productData.append('user', currentUser.id);
       
       if (formData.contact_info) {
         productData.append('contact_info', formData.contact_info);
