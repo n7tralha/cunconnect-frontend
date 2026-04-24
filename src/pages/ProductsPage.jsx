@@ -36,7 +36,7 @@ export default function ProductsPage() {
       const uniqueCategories = [...new Set(productsList.map(p => p.category))];
       setCategories(uniqueCategories);
 
-      const sellerIds = [...new Set(productsList.map(p => p.seller_id))];
+      const sellerIds = [...new Set(productsList.map(p => p.seller_id))].filter(id => id && id.trim() !== '');
       const sellersData = {};
       
       for (const id of sellerIds) {
@@ -105,7 +105,7 @@ export default function ProductsPage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">Todas las Categorías</SelectItem>
-                  {categories.map(category => (
+                  {categories.filter(c => c && c.trim() !== '').map(category => (
                     <SelectItem key={category} value={category}>
                       {category}
                     </SelectItem>
